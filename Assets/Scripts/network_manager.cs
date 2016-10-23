@@ -157,7 +157,7 @@ public class network_manager : MonoBehaviour
         /// Add a channel to send and recieve 
         /// Build channel configuration
         ConnectionConfig connection_configuration = new ConnectionConfig();
-        server_reliable_channel = connection_configuration.AddChannel(QosType.ReliableSequenced);
+        server_reliable_channel = connection_configuration.AddChannel(QosType.UnreliableSequenced);
 
         /// Create Network Topology for host configuration
         /// This topology defines: 
@@ -186,7 +186,7 @@ public class network_manager : MonoBehaviour
         /// Add a channel to send and recieve 
         /// Build channel configuration
         ConnectionConfig connection_configuration = new ConnectionConfig();
-        client_reliable_channel = connection_configuration.AddChannel(QosType.ReliableSequenced);
+        client_reliable_channel = connection_configuration.AddChannel(QosType.UnreliableSequenced);
 
         /// Create Network Topology for host configuration
         /// This topology defines: 
