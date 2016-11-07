@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
         // Client get inputs
         if (current_player == owner)
         {
-            
+
             if (current_player == 1)
             {
                 //Debug.Log("The server should move its own");
@@ -153,6 +153,8 @@ public class PlayerController : MonoBehaviour
             {
                 x = Input.GetAxis("Horizontal");
                 z = Input.GetAxis("Vertical");
+                transform.Rotate(0, x * Time.deltaTime * 150.0f, 0);
+                transform.Translate(0, 0, z * Time.deltaTime * 3.0f * 2);
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     fired = 1;
@@ -169,6 +171,7 @@ public class PlayerController : MonoBehaviour
 
 
         }
+
 
 
         /*
@@ -236,7 +239,7 @@ public class PlayerController : MonoBehaviour
 */
 
 
- 
+
 
     }
 
