@@ -13,8 +13,18 @@ public class PlayerController : MonoBehaviour
     public Transform bulletSpawn;
     public byte owner;
     byte current_player;
+
+    // Client Queue
     int frame = 0;
     Queue<Vector3> past_positions;
+
+    // Lerping
+    bool lerping = false;
+    float lerp_time = 1.0f;
+    float current_lerp_time;
+    Vector3 lerp_final_position;
+
+
 
 
     //Client to send
@@ -98,9 +108,18 @@ public class PlayerController : MonoBehaviour
                 frame++;
             }
             if (current_player != owner)
+            {
+                if (lerping == true)
                 {
-                client_update_world();
+                    lerp_player_position();
                 }
+                else
+                {
+                    client_update_world();
+                }
+
+
+            }
 
 
 
@@ -111,6 +130,34 @@ public class PlayerController : MonoBehaviour
 
         
     }
+
+
+
+    // Lerping the player position
+
+    void lerp_player_position()
+    {
+
+        current_lerp_time += Time.deltaTime;
+        if (current_lerp_time > lerp_time)
+        {
+            lerping = false;
+            current_lerp_time = lerp_time;
+        }
+        float percent = current_lerp_time / lerp_time;
+        transform.position = Vector3.Lerp(transform.position, lerp_final_position, percent);
+
+
+
+    }
+
+
+
+
+
+
+
+
 
 
     void Fire()
@@ -300,6 +347,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(past_positions.Count.ToString());
         if (found == false)
         {
+            /*
             transform.position = new Vector3(data_x, data_y, data_z);
             transform.rotation = Quaternion.Euler(angle_x, angle_y, angle_z);
             if (fired == 1)
@@ -308,6 +356,10 @@ public class PlayerController : MonoBehaviour
             }
 
             //Debug.Log("Player should be here");
+            */
+            lerping = true;
+            lerp_final_position = new Vector3(data_x, data_y, data_z);
+            current_lerp_time = 0f;
         }
 
 
