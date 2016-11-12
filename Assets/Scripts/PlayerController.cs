@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Networking;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections.Generic;
 using System;
 
 
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public byte owner;
     byte current_player;
     int frame = 0;
+    Queue<Vector3> past_positions;
+
 
     //Client to send
     byte[] client_info = new byte[12];
@@ -55,6 +58,8 @@ public class PlayerController : MonoBehaviour
         //client_update_world(n_manager_script.server_to_client_data_large);
         server_get_data_to_send();
 
+        past_positions = new Queue<Vector3>(10);
+
     }
 
     void Update()
@@ -91,6 +96,10 @@ public class PlayerController : MonoBehaviour
                 }
                 frame++;
             }
+            if (current_player != owner)
+                {
+                client_update_world();
+                }
 
         }
 
@@ -160,10 +169,18 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+
                 x = Input.GetAxis("Horizontal");
                 z = Input.GetAxis("Vertical");
                 transform.Rotate(0, x * Time.deltaTime * 150.0f, 0);
                 transform.Translate(0, 0, z * Time.deltaTime * 3.0f * 2);
+
+
+                // Update the Queue with the current position we just enter
+
+                past_positions.Enqueue(transform.position);
+
+
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     fired = 1;
@@ -228,6 +245,7 @@ public class PlayerController : MonoBehaviour
 
     void client_update_world()
     {
+
         //byte[] client_new_world = n_manager_script.server_to_client_data_large;
         float[] data = new float[28];
         Buffer.BlockCopy(n_manager_script.server_to_client_data_large, 3, data, 0, 112);
@@ -254,14 +272,39 @@ public class PlayerController : MonoBehaviour
         angle_z = data[index + 5];
         fired = data[index + 6];
 
-        transform.position = new Vector3(data_x, data_y, data_z);
-        transform.rotation = Quaternion.Euler(angle_x, angle_y, angle_z);
-        if (fired == 1)
+
+
+        // The client is going to make a decision whether the new x y z data it recieved from the server is one 
+        // that it has seen before and if so keep on using client side inputs.
+        // If it has never been in that position before then it must move back to that location
+
+
+        bool found = false;
+        while(past_positions.Count != 0 && found != true)
         {
-            Fire();
+            Vector3 past_position = past_positions.Dequeue();
+
+            Vector3 server_postion = new Vector3(data_x, data_y, data_z);
+            float server_sq_distance = Vector3.Distance(past_position, server_postion);
+            if (server_sq_distance < .5)
+            {
+
+                found = true;
+            }
         }
 
-        //Debug.Log("Player should be here");
+        if (found == false)
+        {
+            transform.position = new Vector3(data_x, data_y, data_z);
+            transform.rotation = Quaternion.Euler(angle_x, angle_y, angle_z);
+            if (fired == 1)
+            {
+                Fire();
+            }
+
+            //Debug.Log("Player should be here");
+        }
+
 
 
     }
