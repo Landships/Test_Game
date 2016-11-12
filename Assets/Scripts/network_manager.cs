@@ -13,6 +13,7 @@ public class network_manager : MonoBehaviour
     Canvas_Manager manager_script;
     GameObject server_lobby;
     GameObject join_lobby;
+    int frame = 0;
 
     //Network variables
     string server_ip;
@@ -105,8 +106,16 @@ public class network_manager : MonoBehaviour
 
             if (started == true)
             {
-                
-                server_send_large_message_to_client();
+
+                if (frame == 0)
+                { 
+                    server_send_large_message_to_client();
+                    frame = 1; 
+                }
+                else
+                {
+                    frame = 0;
+                }
                 server_get_client_player_data();
 
                 //client_get_data_to_send()
