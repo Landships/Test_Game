@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(past_positions.Count.ToString());
         //client_get_data_to_send();
         started = n_manager_script.started;
         ready = n_manager_script.game_ready;
@@ -86,9 +85,21 @@ public class PlayerController : MonoBehaviour
             // Client updates its world based off the large server message
             if( started)
             {
-                client_update_world();
+               if (frame == 0)
+                {
+                    client_update_world();
+                       
+                }
+                if (frame == 10)
+                {
+                    frame = -1;
+                }
+                frame++;
             }
-
+            if (current_player != owner)
+                {
+                client_update_world();
+                }
 
         }
 
@@ -168,6 +179,7 @@ public class PlayerController : MonoBehaviour
                 // Update the Queue with the current position we just enter
 
                 past_positions.Enqueue(transform.position);
+                Debug.Log(past_positions.Count.ToString());
 
 
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -275,7 +287,7 @@ public class PlayerController : MonoBehaviour
 
             Vector3 server_postion = new Vector3(data_x, data_y, data_z);
             float server_sq_distance = Vector3.Distance(past_position, server_postion);
-            if (server_sq_distance < .5)
+            if (server_sq_distance < .05)
             {
 
                 found = true;
