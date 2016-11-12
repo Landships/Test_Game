@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             if (server_player == owner)
             {
                 //Debug.Log("job for the server Deeper");
-                Debug.Log(fired_input.ToString());
+                //Debug.Log(fired_input.ToString());
                 x = horizontal_input * Time.deltaTime * 150.0f;
                 z = vertical_input * Time.deltaTime * 3.0f;
 
@@ -260,7 +260,7 @@ public class PlayerController : MonoBehaviour
             Fire();
         }
 
-        Debug.Log("Player should be here");
+        //Debug.Log("Player should be here");
 
 
     }
@@ -310,7 +310,7 @@ public class PlayerController : MonoBehaviour
         data_out[2] = three;
 
         //Buffer.BlockCopy(data_out, 0, n_manager_script.server_to_client_data_large, 0, 115);
-        Debug.Log("Server should be here");
+        //Debug.Log("Server should be here");
         n_manager_script.server_to_client_data_large = data_out;
 
 
