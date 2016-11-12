@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
 
         if (current_player != 1)
         {
+            /*
             // Client updates its world based off the large server message
             if( started)
             {
@@ -100,6 +101,10 @@ public class PlayerController : MonoBehaviour
                 {
                 client_update_world();
                 }
+
+            */
+            client_update_world();
+
 
         }
 
