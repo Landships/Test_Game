@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         if (current_player != 1)
         {
-            /*
+
             // Client updates its world based off the large server message
             if( started)
             {
@@ -102,8 +102,7 @@ public class PlayerController : MonoBehaviour
                 client_update_world();
                 }
 
-            */
-            client_update_world();
+
 
 
         }
@@ -184,7 +183,7 @@ public class PlayerController : MonoBehaviour
                 // Update the Queue with the current position we just enter
 
                 past_positions.Enqueue(transform.position);
-                Debug.Log(past_positions.Count.ToString());
+                
 
 
                 if (Input.GetKeyDown(KeyCode.Space))
@@ -298,7 +297,7 @@ public class PlayerController : MonoBehaviour
                 found = true;
             }
         }
-
+        Debug.Log(past_positions.Count.ToString());
         if (found == false)
         {
             transform.position = new Vector3(data_x, data_y, data_z);
