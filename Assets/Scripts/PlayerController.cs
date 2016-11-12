@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Transform bulletSpawn;
     public byte owner;
     byte current_player;
+    int frame = 0;
 
     //Client to send
     byte[] client_info = new byte[12];
@@ -79,8 +80,15 @@ public class PlayerController : MonoBehaviour
             // Client updates its world based off the large server message
             if( started)
             {
-               
-                client_update_world();
+                if (frame == 0)
+                {
+                    client_update_world();
+                    frame = 1;
+                }
+                else
+                {
+                    frame = 0;
+                }
             }
 
         }
@@ -137,7 +145,7 @@ public class PlayerController : MonoBehaviour
         if (current_player == owner)
         {
 
-            if (current_player == 1)
+            if (current_player == 1)  // Current Player is the owner and the server
             {
                 //Debug.Log("The server should move its own");
                 x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
@@ -174,69 +182,6 @@ public class PlayerController : MonoBehaviour
 
 
 
-        /*
-
-        if (current_player == owner)
-        {
-            // Current Player is the host
-            if (current_player == 1)
-            {
-
-                ///////////////////////////////////////////////////////////////////////////
-                //transform.Rotate(0, horizontal_input, 0);
-                //transform.Translate(0, 0, vertical_input * 10);
-
-                //x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-                //z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
-                
-                x = horizontal_input * Time.deltaTime * 150.0f;
-                z = vertical_input * Time.deltaTime * 3.0f;
-
-                transform.Rotate(0, x, 0);
-                transform.Translate(0, 0, z * 2);
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Fire();
-                }
-                
-
-                if(fired_input == 1)
-                {
-                    Fire();
-                }
-
-            }
-
-            if (current_player != 1)
-            {
-
-                transform.Rotate(0, horizontal_input, 0);
-                transform.Translate(0, 0, vertical_input * 10);
-
-                if (fired_input == 1)
-                {
-                    Fire();
-                }
-
-
-                x = Input.GetAxis("Horizontal");
-                z = Input.GetAxis("Vertical");
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    fired = 1;
-                }
-                else
-                {
-                    fired = 0;
-                }
-
-                client_send_values();
-
-            }
-
-        }
-*/
 
 
 
