@@ -83,12 +83,13 @@ public class PlayerController : MonoBehaviour
                 if (frame == 0)
                 {
                     client_update_world();
-                    frame = 1;
+                       
                 }
-                else
+                if (frame == 10)
                 {
-                    frame = 0;
+                    frame = -1;
                 }
+                frame++;
             }
 
         }
