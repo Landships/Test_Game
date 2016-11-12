@@ -539,7 +539,7 @@ public class network_manager : MonoBehaviour
             case NetworkEventType.ConnectEvent:
                 break;
             case NetworkEventType.DataEvent:
-                Debug.Log(NetworkTransport.GetCurrentRtt(received_host_ID, client_connection, out error).ToString());
+                //Debug.Log(NetworkTransport.GetCurrentRtt(received_host_ID, client_connection, out error).ToString());
                 //Debug.Log("I am the client and I am getting a large message of size: " + data_size.ToString());
                 server_to_client_data_large = buffer;
                 break;

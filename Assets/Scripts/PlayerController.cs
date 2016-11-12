@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(past_positions.Count.ToString());
         //client_get_data_to_send();
         started = n_manager_script.started;
         ready = n_manager_script.game_ready;
@@ -85,21 +86,9 @@ public class PlayerController : MonoBehaviour
             // Client updates its world based off the large server message
             if( started)
             {
-                if (frame == 0)
-                {
-                    client_update_world();
-                       
-                }
-                if (frame == 10)
-                {
-                    frame = -1;
-                }
-                frame++;
-            }
-            if (current_player != owner)
-                {
                 client_update_world();
-                }
+            }
+
 
         }
 
