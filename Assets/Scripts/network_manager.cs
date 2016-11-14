@@ -45,7 +45,7 @@ public class network_manager : MonoBehaviour
 
     void Start()
     {
-        GameObject custom_network_manager = GameObject.Find("Game Manager(Clone)");
+        GameObject custom_network_manager = GameObject.Find("Game Manager");
         manager_script = custom_network_manager.GetComponent<Canvas_Manager>();
         is_host = manager_script.get_host_status();
         Debug.Log(manager_script.get_host_status().ToString());
