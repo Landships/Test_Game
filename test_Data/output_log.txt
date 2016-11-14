@@ -1,0 +1,1178 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+VR: OpenVR Error! OpenVR failed initialization with error code VRInitError_Init_HmdNotFoundPresenceFailed: "Hmd Not Found Presence Failed (126)"!
+ 
+(Filename:  Line: 771)
+
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 980 Ti (ID=0x17c8)
+    Vendor:   NVIDIA
+    VRAM:     6102 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.109 seconds
+Platform assembly: C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\vrab\Desktop\Landships\Test_Game\test_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initialized touch support.
+VR: OpenVR Error! OpenVR failed initialization with error code VRInitError_Init_HmdNotFoundPresenceFailed: "Hmd Not Found Presence Failed (126)"!
+ 
+(Filename:  Line: 771)
+
+VR: OpenVR Error! OpenVR failed initialization with error code VRInitError_Init_HmdNotFoundPresenceFailed: "Hmd Not Found Presence Failed (126)"!
+ 
+(Filename:  Line: 771)
+
+UnloadTime: 0.681133 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2740 -> priority: 1 
+  Thread -> id: 2e74 -> priority: 1 
+10.142.36.113
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Creating a Game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Destroyed Canvas
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+True
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Server socket creation successful!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+THE GAME HAS STARTED!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+I will spawn 4 players
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at spawner_manager.spawn_player (Byte number, Byte owner) [0x00000] in <filename unknown>:0 
+  at spawner_manager.spawn_four_players (Byte host, Byte first_connected, Byte second_connected, Byte third_connected) [0x00000] in <filename unknown>:0 
+  at Canvas_Manager.start_the_game () [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCall.Invoke (System.Object[] args) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.InvokableCallList.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEventBase.Invoke (System.Object[] parameters) [0x00000] in <filename unknown>:0 
+  at UnityEngine.Events.UnityEvent.Invoke () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.Press () [0x00000] in <filename unknown>:0 
+  at UnityEngine.UI.Button.OnPointerClick (UnityEngine.EventSystems.PointerEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute (IPointerClickHandler handler, UnityEngine.EventSystems.BaseEventData eventData) [0x00000] in <filename unknown>:0 
+  at UnityEngine.EventSystems.ExecuteEvents.Execute[IPointerClickHandler] (UnityEngine.GameObject target, UnityEngine.EventSystems.BaseEventData eventData, UnityEngine.EventSystems.EventFunction`1 functor) [0x00000] in <filename unknown>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMousePress(MouseButtonEventData)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent(Int32)
+UnityEngine.EventSystems.StandaloneInputModule:ProcessMouseEvent()
+UnityEngine.EventSystems.StandaloneInputModule:Process()
+UnityEngine.EventSystems.EventSystem:Update()
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerController_VR.server_get_data_to_send () [0x00000] in <filename unknown>:0 
+  at PlayerController_VR.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
