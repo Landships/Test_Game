@@ -38,7 +38,7 @@ public class network_manager : MonoBehaviour
     public byte client_players_amount = 0;
 
 
-    public byte[] server_to_client_data_large = new byte[115];
+    public byte[] server_to_client_data_large = new byte[99];
 
     public bool started = false;
 
@@ -247,8 +247,8 @@ public class network_manager : MonoBehaviour
         int received_connection_ID;
         int received_channel_ID;
         int recieved_data_size;
-        byte[] buffer = new byte[115];
-        int data_size = 115;
+        byte[] buffer = new byte[99];
+        int data_size = 99;
 
         NetworkEventType networkEvent = NetworkEventType.DataEvent;
 
@@ -291,7 +291,7 @@ public class network_manager : MonoBehaviour
     {
         Debug.Log("ServerConnection After: " + server_client_connection);
         byte error;
-        byte[] message = new byte[115];
+        byte[] message = new byte[99];
         //
         //
         //
@@ -306,7 +306,7 @@ public class network_manager : MonoBehaviour
         message[2] = 0;
 
 
-        NetworkTransport.Send(server_socket_ID, s_c_connection, server_reliable_channel, message, 115, out error);
+        NetworkTransport.Send(server_socket_ID, s_c_connection, server_reliable_channel, message, 99, out error);
 
 
         if (error != 0)
@@ -333,8 +333,8 @@ public class network_manager : MonoBehaviour
         int received_connection_ID;
         int received_channel_ID;
         int recieved_data_size;
-        byte[] buffer = new byte[115];
-        int data_size = 115;
+        byte[] buffer = new byte[99];
+        int data_size = 99;
 
         NetworkEventType networkEvent = NetworkEventType.DataEvent;
 
@@ -391,7 +391,7 @@ public class network_manager : MonoBehaviour
     void tell_clients_to_start()
     {
         byte error;
-        byte[] message = new byte[115];
+        byte[] message = new byte[99];
         //
         //
         //
@@ -406,9 +406,9 @@ public class network_manager : MonoBehaviour
         message[2] = 1;
 
 
-        NetworkTransport.Send(server_socket_ID, server_client_connection[1], server_reliable_channel, message, 115, out error);
-        NetworkTransport.Send(server_socket_ID, server_client_connection[2], server_reliable_channel, message, 115, out error);
-        NetworkTransport.Send(server_socket_ID, server_client_connection[3], server_reliable_channel, message, 115, out error);
+        NetworkTransport.Send(server_socket_ID, server_client_connection[1], server_reliable_channel, message, 99, out error);
+        NetworkTransport.Send(server_socket_ID, server_client_connection[2], server_reliable_channel, message, 99, out error);
+        NetworkTransport.Send(server_socket_ID, server_client_connection[3], server_reliable_channel, message, 99, out error);
   
         if (error != 0)
         {
@@ -515,8 +515,8 @@ public class network_manager : MonoBehaviour
         int received_connection_ID;
         int received_channel_ID;
         int recieved_data_size;
-        byte[] buffer = new byte[115];
-        int data_size = 115;
+        byte[] buffer = new byte[99];
+        int data_size = 99;
 
         NetworkEventType networkEvent = NetworkEventType.DataEvent;
 
@@ -555,21 +555,21 @@ public class network_manager : MonoBehaviour
                               server_client_connection[1], 
                               server_reliable_channel, 
                               server_to_client_data_large, 
-                              115, 
+                              99, 
                               out error);
 
         NetworkTransport.Send(server_socket_ID, 
                               server_client_connection[2], 
                               server_reliable_channel, 
                               server_to_client_data_large,
-                              115, 
+                              99, 
                               out error);
 
         NetworkTransport.Send(server_socket_ID, 
                               server_client_connection[3], 
                               server_reliable_channel, 
                               server_to_client_data_large, 
-                              115, 
+                              99, 
                               out error);
 
     }

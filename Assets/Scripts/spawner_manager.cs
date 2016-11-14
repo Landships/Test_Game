@@ -4,6 +4,8 @@ using System.Collections;
 public class spawner_manager : MonoBehaviour
 {
     public GameObject prefab_to_spawn;
+    public GameObject prefab_to_spawn_vr;
+    private GameObject camera_rig;
 
     public void spawn_four_players(byte host, byte first_connected, byte second_connected, byte third_connected)
     {
@@ -58,12 +60,17 @@ public class spawner_manager : MonoBehaviour
                 break;
         }
 
-        GameObject player = Instantiate(prefab_to_spawn, new Vector3(x, y, z), Quaternion.identity) as GameObject;
-        player.gameObject.GetComponent<PlayerController>().owner = owner;
+
+        // Instiantiate VR Players
+        GameObject vr_player = Instantiate(prefab_to_spawn_vr, new Vector3(x, y, z), Quaternion.identity) as GameObject;
+        vr_player.gameObject.GetComponent<PlayerController_VR>().owner = owner;
+        camera_rig = GameObject.Find("[CameraRig]");
+        vr_player.gameObject.GetComponent<PlayerController_VR>().camera_rig = camera_rig;
+        vr_player.gameObject.GetComponent<PlayerController_VR>().left_controller.transform.SetParent(camera_rig.transform.GetChild(0));
+        vr_player.gameObject.GetComponent<PlayerController_VR>().right_controller.transform.SetParent(camera_rig.transform.GetChild(1));
+        // ADD OWNER TODO!!!!!!!!!!!!!!!!!!
 
 
-
-        
     }
 
 
