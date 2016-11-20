@@ -157,6 +157,7 @@ public class PlayerController_VR : MonoBehaviour
     //if not owner and not host, do nothing, else:
     void update_client_values()
     {
+        /*
         // Server move player or self
         if (current_player != owner)
         {
@@ -197,10 +198,33 @@ public class PlayerController_VR : MonoBehaviour
             }
 
                 // Update the Queue with the current position we just enter
-
-
-
         }
+        */
+        if (current_player == 1 && current_player == owner)
+        {
+            Read_Camera_Rig();
+            past_left_positions.Enqueue(left_hand.transform.position);
+            past_right_positions.Enqueue(right_hand.transform.position);
+        }
+        if (current_player == 1 && current_player != owner)
+        {
+            left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+            right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+        }
+        if (current_player != 1 && current_player == owner)
+        {
+            Read_Camera_Rig();
+            past_left_positions.Enqueue(left_hand.transform.position);
+            past_right_positions.Enqueue(right_hand.transform.position);
+
+            client_send_values();
+        }
+        if (current_player != 1 && current_player != owner)
+        {
+            left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+            right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+        }
+
     }
 
 
