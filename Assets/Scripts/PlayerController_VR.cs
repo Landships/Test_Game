@@ -121,6 +121,11 @@ public class PlayerController_VR : MonoBehaviour
                 {
                     client_update_world();
                 }
+                else
+                {
+                    lerp_check();
+                }
+                
             }
             if (frame == 10)
             {
@@ -342,6 +347,15 @@ public class PlayerController_VR : MonoBehaviour
 
 
 
+        lerp_check();
+
+
+
+    }
+
+
+    void lerp_check()
+    {
         // The client is going to make a decision whether the new x y z data it recieved from the server is one 
         // that it has seen before and if so keep on using client side inputs.
         // If it has never been in that position before then it must move back to that location
@@ -408,10 +422,9 @@ public class PlayerController_VR : MonoBehaviour
             lerp_final_right_position = new Vector3(right_x, right_y, right_z);
             current_right_lerp_time = 0f;
         }
-
-
-
     }
+
+
 
 
 
