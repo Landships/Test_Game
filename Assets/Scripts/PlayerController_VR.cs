@@ -92,59 +92,59 @@ public class PlayerController_VR : MonoBehaviour
         if (current_player == 1)
         {
 
-            //Debug.Log("job for the server");
             // Server Updates world based off a clients inputs
             server_update_world(n_manager_script.server_to_client_data);
-            server_get_data_to_send();
+
+            update_client_values();
+
+            if (started)
+            {
+                if (frame == 10)
+                {
+                    frame = -1;
+                }
+                frame++;
+
+                if (left_lerping || right_lerping)
+                {
+                    if (owner == 2)
+                    {
+                        Debug.Log("LERPING");
+                    }
+                    if (left_lerping == true)
+                    {
+                        lerp_player_left_position();
+                    }
+                    if (right_lerping == true)
+                    {
+                        lerp_player_right_position();
+                    }
+                }
+                else
+                {
+                    if (current_player != owner)
+                    {
+                        //client_update_world();
+                    }
+                }
+            }
+
+
+
+                server_get_data_to_send();
+        }
+        else
+        {
+
         }
 
         ///Update position for owner and non-owner - client prediction
-        update_client_values();
+        
 
         //
 
         // Client updates its world based off the large server message
-        if (started)
-        {
-            if (frame == 0)
-            {
-                if (current_player != 1)
-                {
-                    client_update_world();
-                }
-                
-            }
-            if (frame == 10)
-            {
-                frame = -1;
-            }
-            frame++;
 
-            if (left_lerping || right_lerping)
-            {
-                if (owner == 2)
-                {
-                    Debug.Log("LERPING");
-                }
-                if (left_lerping == true)
-                {
-                    lerp_player_left_position();
-                }
-                if (right_lerping == true)
-                {
-                    lerp_player_right_position();
-                }
-            }
-            else
-            {
-                if (current_player != owner)
-                {
-                    client_update_world();
-                }
-            }
-
-
-        }
         
         
         //Debug.Log("PLAYER");
@@ -154,50 +154,6 @@ public class PlayerController_VR : MonoBehaviour
     //if not owner and not host, do nothing, else:
     void update_client_values()
     {
-        Debug.Log("update client values");
-        /*
-        // Server move player or self
-        if (current_player != owner)
-        {
-            server_player = n_manager_script.server_player_control;
-            //host
-            if (server_player == owner && camera_rig != null)
-            {
-                Read_Camera_Rig();
-                past_left_positions.Enqueue(left_hand.transform.position);
-                past_right_positions.Enqueue(right_hand.transform.position);
-            }
-            if (camera_rig == null)
-            {
-                if (owner == 2)
-                {
-                    Debug.Log("HERE");
-                }
-
-
-
-                //past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
-                //past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
-                left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-                right_hand.transform.position = new Vector3(right_x, right_y, right_z);
-            }
-        }
-
-        // Client get inputs
-        if (current_player == owner)
-        {
-            if (camera_rig != null)  // Current Player is the owner and the server
-            {
-                Read_Camera_Rig();
-                past_left_positions.Enqueue(left_hand.transform.position);
-                past_right_positions.Enqueue(right_hand.transform.position);
-
-                client_send_values();
-            }
-
-                // Update the Queue with the current position we just enter
-        }
-        */
         if (current_player == 1 && current_player == owner)
         {
             if (owner == 1)
@@ -474,6 +430,10 @@ public class PlayerController_VR : MonoBehaviour
         left_x = back[0];
         left_y = back[1];
         left_z = back[2];
+
+        Debug.Log((new Vector3(back[0], back[1], back[2]).ToString()));
+        //left_hand.transform.position = new Vector3(back[0], back[1], back[2]);
+        //right_hand.transform.position = new Vector3(back[3], back[4], back[5]);
 
         right_x = back[3];
         right_y = back[4];
