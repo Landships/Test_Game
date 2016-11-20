@@ -172,17 +172,18 @@ public class PlayerController_VR : MonoBehaviour
         // Client get inputs
         if (current_player == owner)
         {
-            if (current_player == 1 && camera_rig != null)  // Current Player is the owner and the server
+            if (camera_rig != null)  // Current Player is the owner and the server
             {
                 Read_Camera_Rig();
-            }
-
-                // Update the Queue with the current position we just enter
-
                 past_left_positions.Enqueue(left_hand.transform.position);
                 past_right_positions.Enqueue(right_hand.transform.position);
 
                 client_send_values();
+            }
+
+                // Update the Queue with the current position we just enter
+
+
 
         }
     }
