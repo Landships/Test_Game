@@ -135,14 +135,14 @@ public class PlayerController_VR : MonoBehaviour
                     {
                         client_update_world();
                     }
-
                 }
-                if (frame == 10)
-                {
-                    frame = -1;
-                }
-                frame++;
             }
+
+            if (frame == 10)
+            {
+                frame = -1;
+            }
+            frame++;
 
 
 
