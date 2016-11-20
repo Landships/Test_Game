@@ -49,21 +49,6 @@ public class PlayerController_VR : MonoBehaviour
     float right_y;
     float right_z;
 
-    float server_left_x;
-    float server_left_y;
-    float server_left_z;
-
-    float server_right_x;
-    float server_right_y;
-    float server_right_z;
-
-    float server_left_angle_x;
-    float server_left_angle_y;
-    float server_left_angle_z;
-
-    float server_right_angle_x;
-    float server_right_angle_y;
-    float server_right_angle_z;
 
     //trigger
 
