@@ -119,7 +119,7 @@ public class PlayerController_VR : MonoBehaviour
             {
                 if (frame == 0)
                 {
-                    //client_update_world();
+                    client_update_world();
 
                 }
                 if (frame == 10)
@@ -140,7 +140,7 @@ public class PlayerController_VR : MonoBehaviour
                 }
                 else
                 {
-                    //client_update_world();
+                    client_update_world();
                 }
             }
         }
@@ -271,6 +271,138 @@ public class PlayerController_VR : MonoBehaviour
     {
         return current_player;
     }
+
+
+
+
+
+
+
+
+
+
+    void client_update_world()
+    {
+
+        //byte[] client_new_world = n_manager_script.server_to_client_data_large;
+        float[] data = new float[24];
+        Buffer.BlockCopy(n_manager_script.server_to_client_data_large, 3, data, 0, 96);
+
+        // 6 * 4byte things
+        // 4byte things = left_handx, left_handy, left_handz, right_handx, right_handy, right_handz 
+        int offset = 6;
+        int index = 0;
+        if (owner == 2)
+        {
+            index = index + offset;
+        }
+        if (owner == 3)
+        {
+            index = index + offset + offset;
+        }
+        if (owner == 4)
+        {
+            index = index + offset + offset + offset;
+        }
+
+
+        left_x = data[index];
+        left_y = data[index + 1];
+        left_z = data[index + 2];
+        right_x = data[index + 3];
+        right_y = data[index + 4];
+        right_z = data[index + 5];
+
+
+
+
+        // The client is going to make a decision whether the new x y z data it recieved from the server is one 
+        // that it has seen before and if so keep on using client side inputs.
+        // If it has never been in that position before then it must move back to that location
+
+
+        bool left_found = false;
+        while (past_left_positions.Count != 0 && left_found != true)
+        {
+            Vector3 left_past_position = past_left_positions.Dequeue();
+
+            Vector3 server_left_postion = new Vector3(left_x, left_y, left_z);
+            float server_left_sq_distance = Vector3.Distance(left_past_position, server_left_postion);
+            if (server_left_sq_distance < .05)
+            {
+
+                left_found = true;
+            }
+        }
+
+        bool right_found = false;
+        while (past_right_positions.Count != 0 && right_found != true)
+        {
+            Vector3 right_past_position = past_right_positions.Dequeue();
+
+            Vector3 server_right_postion = new Vector3(right_x, right_y, right_z);
+            float server_right_sq_distance = Vector3.Distance(right_past_position, server_right_postion);
+            if (server_right_sq_distance < .05)
+            {
+
+                right_found = true;
+            }
+        }
+
+        if (left_found == false)
+        {
+            /*
+            transform.position = new Vector3(data_x, data_y, data_z);
+            transform.rotation = Quaternion.Euler(angle_x, angle_y, angle_z);
+            if (fired == 1)
+            {
+                Fire();
+            }
+
+            //Debug.Log("Player should be here");
+            */
+            left_lerping = true;
+            lerp_final_left_position = new Vector3(left_x, left_y, left_z);
+            current_left_lerp_time = 0f;
+        }
+
+        if (right_found == false)
+        {
+            /*
+            transform.position = new Vector3(data_x, data_y, data_z);
+            transform.rotation = Quaternion.Euler(angle_x, angle_y, angle_z);
+            if (fired == 1)
+            {
+                Fire();
+            }
+
+            //Debug.Log("Player should be here");
+            */
+            right_lerping = true;
+            lerp_final_right_position = new Vector3(right_x, right_y, right_z);
+            current_right_lerp_time = 0f;
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
