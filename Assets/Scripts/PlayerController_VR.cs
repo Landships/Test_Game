@@ -294,12 +294,12 @@ public class PlayerController_VR : MonoBehaviour
     void client_send_values()
     {
 
-        client_cache[0] = left_x;
-        client_cache[1] = left_y;
-        client_cache[2] = left_z;
-        client_cache[3] = right_x;
-        client_cache[4] = right_y;
-        client_cache[5] = right_z;
+        client_cache[0] = left_hand.transform.position.x;
+        client_cache[1] = left_hand.transform.position.y;
+        client_cache[2] = left_hand.transform.position.z;
+        client_cache[3] = right_hand.transform.position.x;
+        client_cache[4] = right_hand.transform.position.y;
+        client_cache[5] = right_hand.transform.position.z;
         Buffer.BlockCopy(client_cache, 0, client_info, 0, 24);
 
         n_manager_script.client_send_information(client_info);
