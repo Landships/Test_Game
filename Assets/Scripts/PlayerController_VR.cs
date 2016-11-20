@@ -164,8 +164,10 @@ public class PlayerController_VR : MonoBehaviour
             }
             if (camera_rig == null)
             {
-                left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-                right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+                past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+                past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
+                //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+                //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
             }
         }
 
