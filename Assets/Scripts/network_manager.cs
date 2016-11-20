@@ -27,7 +27,7 @@ public class network_manager : MonoBehaviour
     static int server_socket_ID;
     int max_connections = 10;
 
-    public byte[] server_to_client_data = new byte[12];
+    public byte[] server_to_client_data = new byte[24];
     public int server_player_control = -1;
 
     //Client stuff
@@ -367,7 +367,7 @@ public class network_manager : MonoBehaviour
                     Debug.Log("Number of Players in Lobby: " + client_players_amount.ToString());
 
                     // Open up a joined canvas for the client
-                    GameObject custom_network_manager = GameObject.Find("Game Manager(Clone)");
+                    GameObject custom_network_manager = GameObject.Find("Game Manager");
                     manager_script = custom_network_manager.GetComponent<Canvas_Manager>();
                     manager_script.waiting_in_lobby(client_players_amount);
                 }
@@ -376,7 +376,7 @@ public class network_manager : MonoBehaviour
                 {
                     Debug.Log("The Server is telling me to start the game");
 
-                    GameObject g_manager = GameObject.Find("Game Manager(Clone)");
+                    GameObject g_manager = GameObject.Find("Game Manager");
                     Canvas_Manager c_manager_script = g_manager.GetComponent<Canvas_Manager>();
                     c_manager_script.start_the_game();
                 }
@@ -436,7 +436,7 @@ public class network_manager : MonoBehaviour
     public void client_send_information(byte[] client_info)
     {
         byte error;
-        NetworkTransport.Send(client_socket_ID, client_connection, server_reliable_channel, client_info, 12, out error);
+        NetworkTransport.Send(client_socket_ID, client_connection, server_reliable_channel, client_info, 24, out error);
 
     }
 
@@ -450,8 +450,8 @@ public class network_manager : MonoBehaviour
         int received_connection_ID;
         int received_channel_ID;
         int recieved_data_size;
-        byte[] buffer = new byte[12];
-        int data_size = 12;
+        byte[] buffer = new byte[24];
+        int data_size = 24;
 
         NetworkEventType networkEvent = NetworkEventType.DataEvent;
 

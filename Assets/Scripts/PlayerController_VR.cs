@@ -34,8 +34,8 @@ public class PlayerController_VR : MonoBehaviour
     Vector3 lerp_final_right_position;
 
     //Client to send
-    byte[] client_info = new byte[12];
-    float[] client_cache = new float[3];
+    byte[] client_info = new byte[24];
+    float[] client_cache = new float[6];
 
 
     int server_player;
@@ -103,7 +103,7 @@ public class PlayerController_VR : MonoBehaviour
         {
             //Debug.Log("job for the server");
             // Server Updates world based off a clients inputs
-            //server_update_world(n_manager_script.server_to_client_data);
+            server_update_world(n_manager_script.server_to_client_data);
             server_get_data_to_send();
         }
 
@@ -159,6 +159,13 @@ public class PlayerController_VR : MonoBehaviour
             if (server_player == owner && camera_rig != null)
             {
                 Read_Camera_Rig();
+                past_left_positions.Enqueue(left_hand.transform.position);
+                past_right_positions.Enqueue(right_hand.transform.position);
+            }
+            if (camera_rig == null)
+            {
+                left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+                right_hand.transform.position = new Vector3(right_x, right_y, right_z);
             }
         }
 
@@ -169,15 +176,14 @@ public class PlayerController_VR : MonoBehaviour
             {
                 Read_Camera_Rig();
             }
-            else
-            {
+
                 // Update the Queue with the current position we just enter
 
                 past_left_positions.Enqueue(left_hand.transform.position);
                 past_right_positions.Enqueue(right_hand.transform.position);
 
-                //client_send_values();
-            }
+                client_send_values();
+
         }
     }
 
@@ -273,12 +279,20 @@ public class PlayerController_VR : MonoBehaviour
     }
 
 
+    void client_send_values()
+    {
 
+        client_cache[0] = left_x;
+        client_cache[1] = left_y;
+        client_cache[2] = left_z;
+        client_cache[3] = right_x;
+        client_cache[4] = right_y;
+        client_cache[5] = right_z;
+        Buffer.BlockCopy(client_cache, 0, client_info, 0, 24);
 
+        n_manager_script.client_send_information(client_info);
 
-
-
-
+    }
 
 
     void client_update_world()
@@ -394,7 +408,26 @@ public class PlayerController_VR : MonoBehaviour
 
 
 
+    public void server_update_world(byte[] client_inputs)
+    {
+        float[] back = new float[6];
+        Buffer.BlockCopy(client_inputs, 0, back, 0, 24);
+        //Debug.Log(back[0].ToString());
+        //Debug.Log(back[1].ToString());
+        //Debug.Log(back[2].ToString());
 
+
+
+        left_x = back[0];
+        left_y = back[1];
+        left_z = back[2];
+
+        right_x = back[3];
+        right_y = back[4];
+        right_z = back[5];
+
+
+    }
 
 
 
