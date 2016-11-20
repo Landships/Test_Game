@@ -111,24 +111,11 @@ public class PlayerController_VR : MonoBehaviour
         update_client_values();
 
         //
-        if (current_player != 1)
+
+        // Client updates its world based off the large server message
+        if (started)
         {
-
-            // Client updates its world based off the large server message
-            if (started)
-            {
-                if (frame == 0)
-                {
-                    client_update_world();
-
-                }
-                if (frame == 10)
-                {
-                    frame = -1;
-                }
-                frame++;
-            }
-            if (current_player != owner)
+            if (left_lerping || right_lerping)
             {
                 if (left_lerping == true)
                 {
@@ -138,14 +125,32 @@ public class PlayerController_VR : MonoBehaviour
                 {
                     lerp_player_right_position();
                 }
-                else
-                {
-                    client_update_world();
-                }
             }
+            else
+            {
+
+                if (frame == 0)
+                {
+                    if (current_player != 1)
+                    {
+                        client_update_world();
+                    }
+
+                }
+                if (frame == 10)
+                {
+                    frame = -1;
+                }
+                frame++;
+            }
+
+
+
         }
-        Debug.Log("PLAYER");
-        Debug.Log(current_player.ToString());
+        
+        
+        //Debug.Log("PLAYER");
+        //Debug.Log(current_player.ToString());
     }
 
     //if not owner and not host, do nothing, else:
@@ -164,6 +169,10 @@ public class PlayerController_VR : MonoBehaviour
             }
             if (camera_rig == null)
             {
+                if (owner == 2)
+                {
+                    Debug.Log("HERE");
+                }
                 past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
                 past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
                 //left_hand.transform.position = new Vector3(left_x, left_y, left_z);

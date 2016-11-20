@@ -482,6 +482,7 @@ public class network_manager : MonoBehaviour
                 //Debug.Log(back[0].ToString());
                 //Debug.Log(back[1].ToString());
                 //Debug.Log(back[2].ToString());
+                Debug.Log("received vive data");
 
                 server_update_world(buffer, received_connection_ID);
                 break;
