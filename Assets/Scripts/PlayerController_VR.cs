@@ -85,6 +85,11 @@ public class PlayerController_VR : MonoBehaviour
         past_left_positions = new Queue<Vector3>(10);
         past_right_positions = new Queue<Vector3>(10);
 
+
+        
+
+
+
     }
 
     void Update()
@@ -101,6 +106,7 @@ public class PlayerController_VR : MonoBehaviour
 
         if (current_player == 1)
         {
+
             //Debug.Log("job for the server");
             // Server Updates world based off a clients inputs
             server_update_world(n_manager_script.server_to_client_data);
@@ -131,6 +137,10 @@ public class PlayerController_VR : MonoBehaviour
 
             if (left_lerping || right_lerping)
             {
+                if (owner == 2)
+                {
+                    Debug.Log("LERPING");
+                }
                 if (left_lerping == true)
                 {
                     lerp_player_left_position();
@@ -147,6 +157,8 @@ public class PlayerController_VR : MonoBehaviour
                     client_update_world();
                 }
             }
+
+
         }
         
         
@@ -157,6 +169,7 @@ public class PlayerController_VR : MonoBehaviour
     //if not owner and not host, do nothing, else:
     void update_client_values()
     {
+        Debug.Log("update client values");
         /*
         // Server move player or self
         if (current_player != owner)
@@ -202,17 +215,26 @@ public class PlayerController_VR : MonoBehaviour
         */
         if (current_player == 1 && current_player == owner)
         {
+            if (owner == 1)
+                //Debug.Log("case 1");
             Read_Camera_Rig();
             past_left_positions.Enqueue(left_hand.transform.position);
             past_right_positions.Enqueue(right_hand.transform.position);
         }
         if (current_player == 1 && current_player != owner)
         {
+            if (owner == 2)
+            {
+                Debug.Log("case 2");
+                Debug.Log((new Vector3(left_x, left_y, left_z)).ToString());
+            }
             left_hand.transform.position = new Vector3(left_x, left_y, left_z);
             right_hand.transform.position = new Vector3(right_x, right_y, right_z);
         }
         if (current_player != 1 && current_player == owner)
         {
+            if (owner == 1)
+               // Debug.Log("case 3");
             Read_Camera_Rig();
             past_left_positions.Enqueue(left_hand.transform.position);
             past_right_positions.Enqueue(right_hand.transform.position);
@@ -221,6 +243,9 @@ public class PlayerController_VR : MonoBehaviour
         }
         if (current_player != 1 && current_player != owner)
         {
+            if (owner == 1)
+              //  Debug.Log("case 4");
+
             left_hand.transform.position = new Vector3(left_x, left_y, left_z);
             right_hand.transform.position = new Vector3(right_x, right_y, right_z);
         }
@@ -452,7 +477,9 @@ public class PlayerController_VR : MonoBehaviour
     public void server_update_world(byte[] client_inputs)
     {
         float[] back = new float[6];
-        Buffer.BlockCopy(client_inputs, 0, back, 0, 24);
+        //Debug.Log("SIZE");
+       // Debug.Log(client_inputs.Length.ToString());
+        Buffer.BlockCopy(client_inputs, 0, back, 0, client_inputs.Length);
         //Debug.Log(back[0].ToString());
         //Debug.Log(back[1].ToString());
         //Debug.Log(back[2].ToString());
@@ -469,8 +496,6 @@ public class PlayerController_VR : MonoBehaviour
 
 
     }
-
-
 
 
 

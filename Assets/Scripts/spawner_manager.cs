@@ -81,6 +81,7 @@ public class spawner_manager : MonoBehaviour
 
 
         GameObject vr_player = Instantiate(prefab_to_spawn_vr, new Vector3(x, y, z), Quaternion.identity) as GameObject;
+
         vr_player.gameObject.GetComponent<PlayerController_VR>().owner = owner;
 
         Debug.Log("DONE");

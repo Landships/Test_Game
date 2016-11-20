@@ -45,6 +45,9 @@ public class network_manager : MonoBehaviour
 
     void Start()
     {
+
+        //Array.Clear(server_to_client_data, 0, 24);
+
         GameObject custom_network_manager = GameObject.Find("Game Manager");
         manager_script = custom_network_manager.GetComponent<Canvas_Manager>();
         is_host = manager_script.get_host_status();
@@ -482,7 +485,6 @@ public class network_manager : MonoBehaviour
                 //Debug.Log(back[0].ToString());
                 //Debug.Log(back[1].ToString());
                 //Debug.Log(back[2].ToString());
-                Debug.Log("received vive data");
 
                 server_update_world(buffer, received_connection_ID);
                 break;
