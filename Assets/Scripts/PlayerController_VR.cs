@@ -121,10 +121,6 @@ public class PlayerController_VR : MonoBehaviour
                 {
                     client_update_world();
                 }
-                else
-                {
-                    lerp_check();
-                }
                 
             }
             if (frame == 10)
@@ -178,10 +174,13 @@ public class PlayerController_VR : MonoBehaviour
                 {
                     Debug.Log("HERE");
                 }
-                past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
-                past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
-                //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-                //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+
+
+
+                //past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+                //past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
+                left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+                right_hand.transform.position = new Vector3(right_x, right_y, right_z);
             }
         }
 
