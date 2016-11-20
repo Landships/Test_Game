@@ -115,6 +115,19 @@ public class PlayerController_VR : MonoBehaviour
         // Client updates its world based off the large server message
         if (started)
         {
+            if (frame == 0)
+            {
+                if (current_player != 1)
+                {
+                    client_update_world();
+                }
+            }
+            if (frame == 10)
+            {
+                frame = -1;
+            }
+            frame++;
+
             if (left_lerping || right_lerping)
             {
                 if (left_lerping == true)
@@ -128,24 +141,11 @@ public class PlayerController_VR : MonoBehaviour
             }
             else
             {
-
-                if (frame == 0)
+                if (current_player != owner)
                 {
-                    if (current_player != 1)
-                    {
-                        client_update_world();
-                    }
+                    client_update_world();
                 }
             }
-
-            if (frame == 10)
-            {
-                frame = -1;
-            }
-            frame++;
-
-
-
         }
         
         
