@@ -5,9 +5,20 @@ public class spawner_manager : MonoBehaviour
 {
     public GameObject prefab_to_spawn;
     public GameObject prefab_to_spawn_vr;
-    public GameObject camera_rig;
-    public GameObject left_controller;
-    public GameObject right_controller;
+    static GameObject camera_rig;
+    static GameObject left_controller;
+    static GameObject right_controller;
+
+
+    void Start()
+    {
+        camera_rig = GameObject.Find("[CameraRig]");
+        left_controller = camera_rig.transform.FindChild("Controller (left)").gameObject;
+        right_controller = camera_rig.transform.FindChild("Controller (right)").gameObject;
+
+
+    }
+
 
     public void spawn_four_players(byte host, byte first_connected, byte second_connected, byte third_connected)
     {
@@ -23,6 +34,8 @@ public class spawner_manager : MonoBehaviour
 
 
     }
+
+
 
     void spawn_player(byte number, byte owner)
     {
@@ -64,17 +77,33 @@ public class spawner_manager : MonoBehaviour
 
 
         // Instiantiate VR Players
+
+
+
         GameObject vr_player = Instantiate(prefab_to_spawn_vr, new Vector3(x, y, z), Quaternion.identity) as GameObject;
         vr_player.gameObject.GetComponent<PlayerController_VR>().owner = owner;
-        vr_player.gameObject.GetComponent<PlayerController_VR>().camera_rig = camera_rig;
-        
-        //vr_player.gameObject.GetComponent<PlayerController_VR>().left_controller.transform.SetParent(camera_rig.transform.GetChild(0));
-        // vr_player.gameObject.GetComponent<PlayerController_VR>().right_controller.transform.SetParent(camera_rig.transform.GetChild(1));
-        vr_player.gameObject.GetComponent<PlayerController_VR>().left_controller = left_controller.gameObject;
-        vr_player.gameObject.GetComponent<PlayerController_VR>().right_controller = right_controller.gameObject;
+
         Debug.Log("DONE");
-    
+
+        GameObject n_manager = GameObject.Find("Custom Network Manager(Clone)");
+        network_manager n_manager_script = n_manager.GetComponent<network_manager>();
+        byte current_player = (byte)(n_manager_script.client_players_amount);
+
+
         // ADD OWNER TODO!!!!!!!!!!!!!!!!!!
+        Debug.Log("current player");
+        Debug.Log(current_player);
+        if (current_player == owner)
+        {
+            camera_rig.transform.position = new Vector3(x, y, z);
+            vr_player.gameObject.GetComponent<PlayerController_VR>().camera_rig = camera_rig;
+
+            //vr_player.gameObject.GetComponent<PlayerController_VR>().left_controller.transform.SetParent(camera_rig.transform.GetChild(0));
+            // vr_player.gameObject.GetComponent<PlayerController_VR>().right_controller.transform.SetParent(camera_rig.transform.GetChild(1));
+            vr_player.gameObject.GetComponent<PlayerController_VR>().left_controller = left_controller;
+            vr_player.gameObject.GetComponent<PlayerController_VR>().right_controller = right_controller;
+        }
+        
 
 
     }

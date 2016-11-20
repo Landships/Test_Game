@@ -91,7 +91,7 @@ public class PlayerController_VR : MonoBehaviour
     {
         //DEBUG
         //Buffer.BlockCopy(n_manager_script.server_to_client_data_large, 0, data_cache, 3, );
-
+        
 
         //client_get_data_to_send();
         started = n_manager_script.started;
@@ -144,7 +144,8 @@ public class PlayerController_VR : MonoBehaviour
                 }
             }
         }
-
+        Debug.Log("PLAYER");
+        Debug.Log(current_player.ToString());
     }
 
     //if not owner and not host, do nothing, else:
@@ -155,7 +156,7 @@ public class PlayerController_VR : MonoBehaviour
         {
             server_player = n_manager_script.server_player_control;
             //host
-            if (server_player == owner)
+            if (server_player == owner && camera_rig != null)
             {
                 Read_Camera_Rig();
             }
@@ -164,7 +165,7 @@ public class PlayerController_VR : MonoBehaviour
         // Client get inputs
         if (current_player == owner)
         {
-            if (current_player == 1)  // Current Player is the owner and the server
+            if (current_player == 1 && camera_rig != null)  // Current Player is the owner and the server
             {
                 Read_Camera_Rig();
             }
@@ -264,6 +265,11 @@ public class PlayerController_VR : MonoBehaviour
 
 
 
+    }
+
+    public byte get_client_player_number()
+    {
+        return current_player;
     }
 
 
