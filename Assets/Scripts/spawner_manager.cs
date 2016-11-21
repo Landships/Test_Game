@@ -27,7 +27,7 @@ public class spawner_manager : MonoBehaviour
 
         Debug.Log("I will spawn " + " players");
         byte tally = 1;
-        while (tally <= n_manager_script.client_players_amount)
+        while (tally <= 4)
         {
             spawn_player(tally, tally);
             tally++;
