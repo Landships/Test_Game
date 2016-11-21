@@ -163,6 +163,8 @@ public class PlayerController_VR : MonoBehaviour
         left_y = back[1];
         left_z = back[2];
 
+        Debug.Log("left controller vector3: " + left_x + " " + left_y + " " + left_z);
+
         right_x = back[3];
         right_y = back[4];
         right_z = back[5];
@@ -179,6 +181,7 @@ public class PlayerController_VR : MonoBehaviour
         }
         if (current_player == 1 && current_player != owner)
         {
+            
             past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
             past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
 
@@ -354,6 +357,8 @@ public class PlayerController_VR : MonoBehaviour
         client_cache[4] = right_controller.transform.position.y;
         client_cache[5] = right_controller.transform.position.z;
         Buffer.BlockCopy(client_cache, 0, client_info, 0, 24);
+
+        Debug.Log("Left controller sending: " + left_controller.transform.position.ToString());
 
         n_manager_script.client_send_information(client_info);
 
