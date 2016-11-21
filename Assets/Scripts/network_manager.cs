@@ -381,7 +381,7 @@ public class network_manager : MonoBehaviour
 
                     GameObject g_manager = GameObject.Find("Game Manager");
                     Canvas_Manager c_manager_script = g_manager.GetComponent<Canvas_Manager>();
-                    c_manager_script.start_the_game();
+                    c_manager_script.start_the_game(client_players_amount);
                 }
 
                 break;
