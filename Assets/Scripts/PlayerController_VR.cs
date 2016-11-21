@@ -79,11 +79,6 @@ public class PlayerController_VR : MonoBehaviour
 
     void Update()
     {
-        //DEBUG
-        //Buffer.BlockCopy(n_manager_script.server_to_client_data_large, 0, data_cache, 3, );
-        
-
-        //client_get_data_to_send();
         started = n_manager_script.started;
         ready = n_manager_script.game_ready;
 
@@ -95,37 +90,19 @@ public class PlayerController_VR : MonoBehaviour
             //Debug.Log("job for the server");
             // Server Updates world based off a clients inputs
             server_update_world(n_manager_script.server_to_client_data);
-            server_get_data_to_send();
-        }
-
-        ///Update position for owner and non-owner - client prediction
-        update_client_values();
-
-        //
-
-        // Client updates its world based off the large server message
-        if (started)
-        {
-            if (frame == 0)
+            update_client_values();
+            if (started)
             {
-                if (current_player != 1)
+                if (frame == 10)
                 {
-                    client_update_world();
+                    frame = -1;
+                    if (owner != 1)
+                    {
+                        LerpCheck();
+                    }
                 }
-                
-            }
-            if (frame == 10)
-            {
-                frame = -1;
-            }
-            frame++;
+                frame++;
 
-            if (left_lerping || right_lerping)
-            {
-                if (owner == 2)
-                {
-                    Debug.Log("LERPING");
-                }
                 if (left_lerping == true)
                 {
                     lerp_player_left_position();
@@ -135,86 +112,78 @@ public class PlayerController_VR : MonoBehaviour
                     lerp_player_right_position();
                 }
             }
-            else
+            server_get_data_to_send();
+        }
+
+        else
+        {
+            if (started)
             {
-                if (current_player != owner)
+                if (frame == 10)
                 {
-                    client_update_world();
+                    frame = -1;
+                    if (owner != current_player)
+                    {
+                        client_update_world();
+                    }
+                }
+                frame++;
+
+                if (left_lerping || right_lerping)
+                {
+                    if (left_lerping == true)
+                    {
+                        lerp_player_left_position();
+                    }
+                    if (right_lerping == true)
+                    {
+                        lerp_player_right_position();
+                    }
+                }
+                else
+                {
+                    if (current_player != owner)
+                    {
+                        client_update_world();
+                    }
                 }
             }
 
-
+            update_client_values();
         }
-        
-        
-        //Debug.Log("PLAYER");
-        //Debug.Log(current_player.ToString());
+    }
+
+    public void server_update_world(byte[] client_inputs)
+    {
+        float[] back = new float[6];
+
+        Buffer.BlockCopy(client_inputs, 0, back, 0, client_inputs.Length);
+
+        left_x = back[0];
+        left_y = back[1];
+        left_z = back[2];
+
+        right_x = back[3];
+        right_y = back[4];
+        right_z = back[5];
     }
 
     //if not owner and not host, do nothing, else:
     void update_client_values()
     {
-        Debug.Log("update client values");
-        /*
-        // Server move player or self
-        if (current_player != owner)
-        {
-            server_player = n_manager_script.server_player_control;
-            //host
-            if (server_player == owner && camera_rig != null)
-            {
-                Read_Camera_Rig();
-                past_left_positions.Enqueue(left_hand.transform.position);
-                past_right_positions.Enqueue(right_hand.transform.position);
-            }
-            if (camera_rig == null)
-            {
-                if (owner == 2)
-                {
-                    Debug.Log("HERE");
-                }
-
-
-
-                //past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
-                //past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
-                left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-                right_hand.transform.position = new Vector3(right_x, right_y, right_z);
-            }
-        }
-
-        // Client get inputs
-        if (current_player == owner)
-        {
-            if (camera_rig != null)  // Current Player is the owner and the server
-            {
-                Read_Camera_Rig();
-                past_left_positions.Enqueue(left_hand.transform.position);
-                past_right_positions.Enqueue(right_hand.transform.position);
-
-                client_send_values();
-            }
-
-                // Update the Queue with the current position we just enter
-        }
-        */
         if (current_player == 1 && current_player == owner)
         {
-            if (owner == 1)
-                //Debug.Log("case 1");
             Read_Camera_Rig();
-            past_left_positions.Enqueue(left_hand.transform.position);
-            past_right_positions.Enqueue(right_hand.transform.position);
+            //past_left_positions.Enqueue(left_hand.transform.position);
+            //past_right_positions.Enqueue(right_hand.transform.position);
         }
         if (current_player == 1 && current_player != owner)
         {
-            if (owner == 2)
-            {
-                Debug.Log("case 2");
-                Debug.Log((new Vector3(left_x, left_y, left_z)).ToString());
-            }
-            left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-            right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+            past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+            past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
+
+            //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+            //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
         }
         if (current_player != 1 && current_player == owner)
         {
@@ -231,47 +200,100 @@ public class PlayerController_VR : MonoBehaviour
             if (owner == 1)
               //  Debug.Log("case 4");
 
-            left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-            right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+            //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+            //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+
+            past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+            past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
         }
 
     }
 
-
-    void Read_Camera_Rig()
+    void client_update_world()
     {
-        left_hand.transform.position = left_controller.transform.position;
-        right_hand.transform.position = right_controller.transform.position;
 
+        //byte[] client_new_world = n_manager_script.server_to_client_data_large;
+        float[] data = new float[24];
+        Buffer.BlockCopy(n_manager_script.server_to_client_data_large, 3, data, 0, 96);
 
-    }
-
-
-    void lerp_player_left_position()
-    {
-        current_left_lerp_time += Time.deltaTime;
-        if (current_left_lerp_time > lerp_time)
+        // 6 * 4byte things
+        // 4byte things = left_handx, left_handy, left_handz, right_handx, right_handy, right_handz 
+        int offset = 6;
+        int index = 0;
+        if (owner == 2)
         {
-            left_lerping = false;
-            current_left_lerp_time = lerp_time;
+            index = index + offset;
         }
-        float percent = current_left_lerp_time / lerp_time;
-        left_hand.transform.position = Vector3.Lerp(left_hand.transform.position, lerp_final_left_position, percent);
-    }
-
-    void lerp_player_right_position()
-    {
-        current_right_lerp_time += Time.deltaTime;
-        if (current_right_lerp_time > lerp_time)
+        if (owner == 3)
         {
-            right_lerping = false;
-            current_right_lerp_time = lerp_time;
+            index = index + offset + offset;
         }
-        float percent = current_right_lerp_time / lerp_time;
-        right_hand.transform.position = Vector3.Lerp(right_hand.transform.position, lerp_final_right_position, percent);
+        if (owner == 4)
+        {
+            index = index + offset + offset + offset;
+        }
+
+
+        left_x = data[index];
+        left_y = data[index + 1];
+        left_z = data[index + 2];
+        right_x = data[index + 3];
+        right_y = data[index + 4];
+        right_z = data[index + 5];
+
+        LerpCheck();
     }
 
+    void LerpCheck()
+    {
 
+        // The client is going to make a decision whether the new x y z data it recieved from the server is one 
+        // that it has seen before and if so keep on using client side inputs.
+        // If it has never been in that position before then it must move back to that location
+
+
+        bool left_found = false;
+        while (past_left_positions.Count != 0 && left_found != true)
+        {
+            Vector3 left_past_position = past_left_positions.Dequeue();
+
+            Vector3 server_left_postion = new Vector3(left_x, left_y, left_z);
+            float server_left_sq_distance = Vector3.Distance(left_past_position, server_left_postion);
+            if (server_left_sq_distance < .05)
+            {
+
+                left_found = true;
+            }
+        }
+
+        bool right_found = false;
+        while (past_right_positions.Count != 0 && right_found != true)
+        {
+            Vector3 right_past_position = past_right_positions.Dequeue();
+
+            Vector3 server_right_postion = new Vector3(right_x, right_y, right_z);
+            float server_right_sq_distance = Vector3.Distance(right_past_position, server_right_postion);
+            if (server_right_sq_distance < .05)
+            {
+
+                right_found = true;
+            }
+        }
+
+        if (left_found == false)
+        {
+            left_lerping = true;
+            lerp_final_left_position = new Vector3(left_x, left_y, left_z);
+            current_left_lerp_time = 0f;
+        }
+
+        if (right_found == false)
+        {
+            right_lerping = true;
+            lerp_final_right_position = new Vector3(right_x, right_y, right_z);
+            current_right_lerp_time = 0f;
+        }
+    }
 
 
     public void server_get_data_to_send()
@@ -323,11 +345,6 @@ public class PlayerController_VR : MonoBehaviour
 
     }
 
-    public byte get_client_player_number()
-    {
-        return current_player;
-    }
-
 
     void client_send_values()
     {
@@ -345,141 +362,43 @@ public class PlayerController_VR : MonoBehaviour
     }
 
 
-    void client_update_world()
+
+    void Read_Camera_Rig()
     {
-
-        //byte[] client_new_world = n_manager_script.server_to_client_data_large;
-        float[] data = new float[24];
-        Buffer.BlockCopy(n_manager_script.server_to_client_data_large, 3, data, 0, 96);
-
-        // 6 * 4byte things
-        // 4byte things = left_handx, left_handy, left_handz, right_handx, right_handy, right_handz 
-        int offset = 6;
-        int index = 0;
-        if (owner == 2)
-        {
-            index = index + offset;
-        }
-        if (owner == 3)
-        {
-            index = index + offset + offset;
-        }
-        if (owner == 4)
-        {
-            index = index + offset + offset + offset;
-        }
-
-
-        left_x = data[index];
-        left_y = data[index + 1];
-        left_z = data[index + 2];
-        right_x = data[index + 3];
-        right_y = data[index + 4];
-        right_z = data[index + 5];
-
-
-
-
-        // The client is going to make a decision whether the new x y z data it recieved from the server is one 
-        // that it has seen before and if so keep on using client side inputs.
-        // If it has never been in that position before then it must move back to that location
-
-
-        bool left_found = false;
-        while (past_left_positions.Count != 0 && left_found != true)
-        {
-            Vector3 left_past_position = past_left_positions.Dequeue();
-
-            Vector3 server_left_postion = new Vector3(left_x, left_y, left_z);
-            float server_left_sq_distance = Vector3.Distance(left_past_position, server_left_postion);
-            if (server_left_sq_distance < .05)
-            {
-
-                left_found = true;
-            }
-        }
-
-        bool right_found = false;
-        while (past_right_positions.Count != 0 && right_found != true)
-        {
-            Vector3 right_past_position = past_right_positions.Dequeue();
-
-            Vector3 server_right_postion = new Vector3(right_x, right_y, right_z);
-            float server_right_sq_distance = Vector3.Distance(right_past_position, server_right_postion);
-            if (server_right_sq_distance < .05)
-            {
-
-                right_found = true;
-            }
-        }
-
-        if (left_found == false)
-        {
-            /*
-            transform.position = new Vector3(data_x, data_y, data_z);
-            transform.rotation = Quaternion.Euler(angle_x, angle_y, angle_z);
-            if (fired == 1)
-            {
-                Fire();
-            }
-
-            //Debug.Log("Player should be here");
-            */
-            left_lerping = true;
-            lerp_final_left_position = new Vector3(left_x, left_y, left_z);
-            current_left_lerp_time = 0f;
-        }
-
-        if (right_found == false)
-        {
-            /*
-            transform.position = new Vector3(data_x, data_y, data_z);
-            transform.rotation = Quaternion.Euler(angle_x, angle_y, angle_z);
-            if (fired == 1)
-            {
-                Fire();
-            }
-
-            //Debug.Log("Player should be here");
-            */
-            right_lerping = true;
-            lerp_final_right_position = new Vector3(right_x, right_y, right_z);
-            current_right_lerp_time = 0f;
-        }
-
+        left_hand.transform.position = left_controller.transform.position;
+        right_hand.transform.position = right_controller.transform.position;
 
 
     }
 
 
-
-
-
-
-
-
-
-    public void server_update_world(byte[] client_inputs)
+    void lerp_player_left_position()
     {
-        float[] back = new float[6];
-        //Debug.Log("SIZE");
-       // Debug.Log(client_inputs.Length.ToString());
-        Buffer.BlockCopy(client_inputs, 0, back, 0, client_inputs.Length);
-        //Debug.Log(back[0].ToString());
-        //Debug.Log(back[1].ToString());
-        //Debug.Log(back[2].ToString());
+        current_left_lerp_time += Time.deltaTime;
+        if (current_left_lerp_time > lerp_time)
+        {
+            left_lerping = false;
+            current_left_lerp_time = lerp_time;
+        }
+        float percent = current_left_lerp_time / lerp_time;
+        left_hand.transform.position = Vector3.Lerp(left_hand.transform.position, lerp_final_left_position, percent);
+    }
 
+    void lerp_player_right_position()
+    {
+        current_right_lerp_time += Time.deltaTime;
+        if (current_right_lerp_time > lerp_time)
+        {
+            right_lerping = false;
+            current_right_lerp_time = lerp_time;
+        }
+        float percent = current_right_lerp_time / lerp_time;
+        right_hand.transform.position = Vector3.Lerp(right_hand.transform.position, lerp_final_right_position, percent);
+    }
 
-
-        left_x = back[0];
-        left_y = back[1];
-        left_z = back[2];
-
-        right_x = back[3];
-        right_y = back[4];
-        right_z = back[5];
-
-
+    public byte get_client_player_number()
+    {
+        return current_player;
     }
 
 
