@@ -92,8 +92,6 @@ public class spawner_manager : MonoBehaviour
 
 
         // ADD OWNER TODO!!!!!!!!!!!!!!!!!!
-        Debug.Log("current player");
-        Debug.Log(current_player);
         if (current_player == owner)
         {
             camera_rig.transform.position = new Vector3(x, y, z);

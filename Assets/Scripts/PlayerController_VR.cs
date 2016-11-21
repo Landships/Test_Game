@@ -64,8 +64,8 @@ public class PlayerController_VR : MonoBehaviour
         n_manager = GameObject.Find("Custom Network Manager(Clone)");
         n_manager_script = n_manager.GetComponent<network_manager>();
         current_player = (byte)(n_manager_script.client_players_amount);
-        //client_update_world(n_manager_script.server_to_client_data_large);
-        //server_get_data_to_send();
+        //client_update_values(n_manager_script.server_to_client_data_large);
+        //server_get_values_to_send();
 
         past_left_positions = new Queue<Vector3>(10);
         past_right_positions = new Queue<Vector3>(10);
@@ -89,8 +89,8 @@ public class PlayerController_VR : MonoBehaviour
 
             //Debug.Log("job for the server");
             // Server Updates world based off a clients inputs
-            server_update_world(n_manager_script.server_to_client_data);
-            update_client_values();
+            server_update_values(n_manager_script.server_to_client_data);
+            update_client_state();
             if (started)
             {
                 if (frame == 10)
@@ -112,7 +112,7 @@ public class PlayerController_VR : MonoBehaviour
                     lerp_player_right_position();
                 }
             }
-            server_get_data_to_send();
+            server_get_values_to_send();
         }
 
         else
@@ -124,7 +124,7 @@ public class PlayerController_VR : MonoBehaviour
                     frame = -1;
                     if (owner != current_player)
                     {
-                        client_update_world();
+                        client_update_values();
                     }
                 }
                 frame++;
@@ -144,16 +144,16 @@ public class PlayerController_VR : MonoBehaviour
                 {
                     if (current_player != owner)
                     {
-                        client_update_world();
+                        client_update_values();
                     }
                 }
             }
 
-            update_client_values();
+            update_client_state();
         }
     }
 
-    public void server_update_world(byte[] client_inputs)
+    public void server_update_values(byte[] client_inputs)
     {
         float[] back = new float[6];
 
@@ -169,7 +169,7 @@ public class PlayerController_VR : MonoBehaviour
     }
 
     //if not owner and not host, do nothing, else:
-    void update_client_values()
+    void update_client_state()
     {
         if (current_player == 1 && current_player == owner)
         {
@@ -187,11 +187,9 @@ public class PlayerController_VR : MonoBehaviour
         }
         if (current_player != 1 && current_player == owner)
         {
-            if (owner == 1)
-                // Debug.Log("case 3");
-                Read_Camera_Rig();
-            past_left_positions.Enqueue(left_hand.transform.position);
-            past_right_positions.Enqueue(right_hand.transform.position);
+            Read_Camera_Rig();
+            past_left_positions.Enqueue(left_controller.transform.position);
+            past_right_positions.Enqueue(right_controller.transform.position);
 
             client_send_values();
         }
@@ -209,7 +207,7 @@ public class PlayerController_VR : MonoBehaviour
 
     }
 
-    void client_update_world()
+    void client_update_values()
     {
 
         //byte[] client_new_world = n_manager_script.server_to_client_data_large;
@@ -296,7 +294,7 @@ public class PlayerController_VR : MonoBehaviour
     }
 
 
-    public void server_get_data_to_send()
+    public void server_get_values_to_send()
     {
 
         float[] data_cache = new float[24];
