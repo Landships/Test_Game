@@ -79,7 +79,7 @@ public class Canvas_Manager : MonoBehaviour {
 
     }
 
-    public void start_the_game(byte num_players)
+    public void start_the_game()
     {
         // The game has started!!!
         Debug.Log("THE GAME HAS STARTED!");
@@ -96,7 +96,7 @@ public class Canvas_Manager : MonoBehaviour {
             Destroy(wait);
         }
 
-        spawner.spawn_four_players(num_players);
+        spawner.spawn_four_players(1,2,3,4);
 
         //n_manager_script.game_ready = true;
     }

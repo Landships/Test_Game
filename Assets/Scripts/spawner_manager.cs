@@ -20,15 +20,19 @@ public class spawner_manager : MonoBehaviour
     }
 
 
-    public void spawn_four_players(byte num_players)
+    public void spawn_four_players(byte host, byte first_connected, byte second_connected, byte third_connected)
     {
-        Debug.Log("I will spawn " + num_players + " players");
-        byte tally = 1;
+        Debug.Log("I will spawn " + " players");
+        /*byte tally = 1;
         while (tally <= num_players)
         {
             spawn_player(tally, tally);
-            tally++;
-        }
+        }*/
+
+        spawn_player(1, host);
+        spawn_player(2, first_connected);
+        spawn_player(3, second_connected);
+        spawn_player(4, third_connected);
 
 
         GameObject n_manager = GameObject.Find("Custom Network Manager(Clone)");
