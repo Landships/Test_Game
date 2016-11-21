@@ -71,7 +71,7 @@ public class PlayerController_VR : MonoBehaviour
         past_right_positions = new Queue<Vector3>(10);
 
 
-        
+
 
 
 
@@ -188,8 +188,8 @@ public class PlayerController_VR : MonoBehaviour
         if (current_player != 1 && current_player == owner)
         {
             if (owner == 1)
-               // Debug.Log("case 3");
-            Read_Camera_Rig();
+                // Debug.Log("case 3");
+                Read_Camera_Rig();
             past_left_positions.Enqueue(left_hand.transform.position);
             past_right_positions.Enqueue(right_hand.transform.position);
 
@@ -198,12 +198,12 @@ public class PlayerController_VR : MonoBehaviour
         if (current_player != 1 && current_player != owner)
         {
             if (owner == 1)
-              //  Debug.Log("case 4");
+                //  Debug.Log("case 4");
 
-            //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-            //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+                //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+                //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
 
-            past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+                past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
             past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
         }
 
