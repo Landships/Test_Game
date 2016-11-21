@@ -96,7 +96,7 @@ public class Canvas_Manager : MonoBehaviour {
             Destroy(wait);
         }
 
-        spawner.spawn_four_players(1,2,3,4);
+        spawner.spawn_four_players();
 
         //n_manager_script.game_ready = true;
     }
