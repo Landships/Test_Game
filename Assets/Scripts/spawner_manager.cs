@@ -27,6 +27,7 @@ public class spawner_manager : MonoBehaviour
         while (tally <= num_players)
         {
             spawn_player(tally, tally);
+            tally++;
         }
 
 
