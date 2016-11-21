@@ -109,6 +109,8 @@ public class PlayerController_VR : MonoBehaviour
                 }
                 if (right_lerping == true)
                 {
+                    if (owner == 2)
+                        Debug.Log("player 2 lerping right");
                     lerp_player_right_position();
                 }
             }
@@ -163,7 +165,7 @@ public class PlayerController_VR : MonoBehaviour
         left_y = back[1];
         left_z = back[2];
 
-        Debug.Log("left controller vector3: " + left_x + " " + left_y + " " + left_z);
+        Debug.Log("left controller vector3: " + right_x + " " + right_y + " " + right_z);
 
         right_x = back[3];
         right_y = back[4];
@@ -181,7 +183,8 @@ public class PlayerController_VR : MonoBehaviour
         }
         if (current_player == 1 && current_player != owner)
         {
-            
+            if (owner == 2)
+                Debug.Log("Player 2");
             past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
             past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
 
@@ -204,7 +207,7 @@ public class PlayerController_VR : MonoBehaviour
                 //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
                 //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
 
-                past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+            past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
             past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
         }
 
@@ -247,7 +250,10 @@ public class PlayerController_VR : MonoBehaviour
 
     void LerpCheck()
     {
-
+        if (owner == 2)
+        {
+            Debug.Log("LERP CHECK");
+        }
         // The client is going to make a decision whether the new x y z data it recieved from the server is one 
         // that it has seen before and if so keep on using client side inputs.
         // If it has never been in that position before then it must move back to that location
@@ -358,7 +364,7 @@ public class PlayerController_VR : MonoBehaviour
         client_cache[5] = right_controller.transform.position.z;
         Buffer.BlockCopy(client_cache, 0, client_info, 0, 24);
 
-        Debug.Log("Left controller sending: " + left_controller.transform.position.ToString());
+        Debug.Log("Left controller sending: " + right_controller.transform.position.ToString());
 
         n_manager_script.client_send_information(client_info);
 
