@@ -98,7 +98,7 @@ public class PlayerController_VR : MonoBehaviour
                     frame = -1;
                     if (owner != 1)
                     {
-                        LerpCheck();
+                        //LerpCheck();
                     }
                 }
                 frame++;
@@ -185,11 +185,11 @@ public class PlayerController_VR : MonoBehaviour
         {
             if (owner == 2)
                 Debug.Log("Player 2");
-            past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
-            past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
+            //past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+            //past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
 
-            //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-            //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
+            left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+            right_hand.transform.position = new Vector3(right_x, right_y, right_z);
         }
         if (current_player != 1 && current_player == owner)
         {
@@ -201,14 +201,12 @@ public class PlayerController_VR : MonoBehaviour
         }
         if (current_player != 1 && current_player != owner)
         {
-            if (owner == 1)
-                //  Debug.Log("case 4");
+          
+                //past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
+                //past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
 
-                //left_hand.transform.position = new Vector3(left_x, left_y, left_z);
-                //right_hand.transform.position = new Vector3(right_x, right_y, right_z);
-
-            past_left_positions.Enqueue(new Vector3(left_x, left_y, left_z));
-            past_right_positions.Enqueue(new Vector3(right_x, right_y, right_z));
+            left_hand.transform.position = new Vector3(left_x, left_y, left_z);
+            right_hand.transform.position = new Vector3(right_x, right_y, right_z);
         }
 
     }
@@ -245,11 +243,6 @@ public class PlayerController_VR : MonoBehaviour
         right_y = data[index + 4];
         right_z = data[index + 5];
 
-        LerpCheck();
-    }
-
-    void LerpCheck()
-    {
         if (owner == 2)
         {
             Debug.Log("LERP CHECK");
@@ -301,6 +294,7 @@ public class PlayerController_VR : MonoBehaviour
             current_right_lerp_time = 0f;
         }
     }
+
 
 
     public void server_get_values_to_send()
