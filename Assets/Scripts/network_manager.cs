@@ -612,7 +612,7 @@ public class network_manager : MonoBehaviour
     {
         byte error;
         server_reliable_buffer[0] = 1;
-        NetworkTransport.Send(server_socket_ID, server_client_connection[1], server_real_reliable_channel, server_reliable_buffer, 1, out error);
+        NetworkTransport.Send(server_socket_ID, server_client_connection[1], server_real_reliable_channel, server_reliable_buffer, 99, out error);
 
     }
 
@@ -621,7 +621,7 @@ public class network_manager : MonoBehaviour
     {
         byte error;
         client_reliable_buffer[0] = 1;
-        NetworkTransport.Send(client_socket_ID, client_connection, server_reliable_channel, client_reliable_buffer, 1, out error);
+        NetworkTransport.Send(client_socket_ID, client_connection, server_reliable_channel, client_reliable_buffer, 24, out error);
 
     }
 
