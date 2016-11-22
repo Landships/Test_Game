@@ -87,7 +87,7 @@ public class PlayerController_VR : MonoBehaviour
             {
                 server_update_values(n_manager_script.server_to_client_data);
             }
-            update_client_state();
+            update_world_state();
             server_get_values_to_send();
         }
 
@@ -116,7 +116,7 @@ public class PlayerController_VR : MonoBehaviour
             {
                  client_update_values();
             }
-            update_client_state();
+            update_world_state();
         }
     }
 
@@ -138,7 +138,7 @@ public class PlayerController_VR : MonoBehaviour
     }
 
     //if not owner and not host, do nothing, else:
-    void update_client_state()
+    void update_world_state()
     {
         if (current_player == 1 && current_player == owner)
         {
@@ -369,12 +369,15 @@ public class PlayerController_VR : MonoBehaviour
     }
 
 
+    public void add_trigger_listener()
+    {
+        right_controller.GetComponent<VRTK.VRTK_ControllerEvents>().TriggerClicked += new VRTK.ControllerInteractionEventHandler(client_send_reliable_message);
+    }
 
-
-
-
-
-
+    void client_send_reliable_message(object sender, VRTK.ControllerInteractionEventArgs e)
+    {
+        Debug.Log("CLICKED");
+    }
 
 
 }

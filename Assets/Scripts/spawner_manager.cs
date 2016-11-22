@@ -109,8 +109,11 @@ public class spawner_manager : MonoBehaviour
             // vr_player.gameObject.GetComponent<PlayerController_VR>().right_controller.transform.SetParent(camera_rig.transform.GetChild(1));
             vr_player.gameObject.GetComponent<PlayerController_VR>().left_controller = left_controller;
             vr_player.gameObject.GetComponent<PlayerController_VR>().right_controller = right_controller;
+
+            vr_player.gameObject.GetComponent<PlayerController_VR>().add_trigger_listener();
+
         }
-        
+
 
 
     }

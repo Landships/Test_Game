@@ -23,6 +23,7 @@ public class network_manager : MonoBehaviour
     //Server Stuff
     int server_port = 8888;
     int server_reliable_channel;
+    int server_real_reliable_channel;
     static int[] server_client_connection = new int[4];
     static int server_socket_ID;
     int max_connections = 10;
@@ -170,6 +171,8 @@ public class network_manager : MonoBehaviour
         /// Build channel configuration
         ConnectionConfig connection_configuration = new ConnectionConfig();
         server_reliable_channel = connection_configuration.AddChannel(QosType.UnreliableSequenced);
+        server_real_reliable_channel = connection_configuration.AddChannel(QosType.Reliable);
+
 
         /// Create Network Topology for host configuration
         /// This topology defines: 
