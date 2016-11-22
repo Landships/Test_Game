@@ -91,6 +91,7 @@ public class PlayerController_VR : MonoBehaviour
             {
                 if (reliable_message)
                 {
+                    Debug.Log("Server_recieved a reliable message");
                     left_hand.GetComponent<Renderer>().material.color = Color.green;
                 }
                 else

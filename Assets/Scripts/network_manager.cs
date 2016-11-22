@@ -490,8 +490,8 @@ public class network_manager : MonoBehaviour
                 Debug.Log("Server Recieved a Connection Event....here?");
                 break;
             case NetworkEventType.DataEvent:
-                //Debug.Log("Recieved data from Player 2");
-                if (received_channel_ID == server_reliable_channel)
+                Debug.Log("Recieved data from Player 2");
+                if (received_channel_ID == server_real_reliable_channel)
                 {
                     reliable_message = true;
                 }
