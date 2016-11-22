@@ -69,12 +69,6 @@ public class PlayerController_VR : MonoBehaviour
 
         past_left_positions = new Queue<Vector3>(10);
         past_right_positions = new Queue<Vector3>(10);
-
-
-
-
-
-
     }
 
     void Update()
@@ -89,7 +83,7 @@ public class PlayerController_VR : MonoBehaviour
 
             //Debug.Log("job for the server");
             // Server Updates world based off a clients inputs
-            if (server_player == current_player)
+            if (server_player == owner)
             {
                 server_update_values(n_manager_script.server_to_client_data);
             }
@@ -127,10 +121,8 @@ public class PlayerController_VR : MonoBehaviour
                 if (frame == 10)
                 {
                     frame = -1;
-                    if (owner != current_player)
-                    {
-                        client_update_values();
-                    }
+                    client_update_values();
+                    client_reconciliation();
                 }
                 frame++;
 
@@ -246,10 +238,10 @@ public class PlayerController_VR : MonoBehaviour
         right_y = data[index + 4];
         right_z = data[index + 5];
 
-        if (owner == 2)
-        {
-            Debug.Log("LERP CHECK");
-        }
+    }
+
+    void client_reconciliation()
+    {
         // The client is going to make a decision whether the new x y z data it recieved from the server is one 
         // that it has seen before and if so keep on using client side inputs.
         // If it has never been in that position before then it must move back to that location
@@ -297,7 +289,6 @@ public class PlayerController_VR : MonoBehaviour
             current_right_lerp_time = 0f;
         }
     }
-
 
 
     public void server_get_values_to_send()
