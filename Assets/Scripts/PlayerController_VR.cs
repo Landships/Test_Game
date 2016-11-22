@@ -89,7 +89,10 @@ public class PlayerController_VR : MonoBehaviour
 
             //Debug.Log("job for the server");
             // Server Updates world based off a clients inputs
-            server_update_values(n_manager_script.server_to_client_data);
+            if (server_player == current_player)
+            {
+                server_update_values(n_manager_script.server_to_client_data);
+            }
             update_client_state();
             if (started)
             {

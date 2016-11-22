@@ -36,8 +36,6 @@ public class network_manager : MonoBehaviour
     int client_connection;
     bool client_joined = false;
     public byte client_players_amount = 0;
-    public byte total_player_amount = 0;
-
 
     public byte[] server_to_client_data_large = new byte[99];
 
@@ -382,8 +380,6 @@ public class network_manager : MonoBehaviour
 
                     GameObject g_manager = GameObject.Find("Game Manager");
                     Canvas_Manager c_manager_script = g_manager.GetComponent<Canvas_Manager>();
-                    total_player_amount = server_players_amount;
-                    Debug.Log("here ");
                     c_manager_script.start_the_game();
                 }
 
@@ -581,7 +577,10 @@ public class network_manager : MonoBehaviour
     }
 
 
-
+    public byte getServerPlayersAmt()
+    {
+        return server_players_amount;
+    }
 
 
 }

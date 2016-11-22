@@ -95,8 +95,8 @@ public class Canvas_Manager : MonoBehaviour {
             GameObject wait = GameObject.Find("Client Waiting(Clone)");
             Destroy(wait);
         }
-
-        spawner.spawn_four_players();
+        byte num_players = (is_a_host ? n_manager_script.getServerPlayersAmt() : n_manager_script.client_players_amount);
+        spawner.spawn_four_players(num_players);
 
         //n_manager_script.game_ready = true;
     }
