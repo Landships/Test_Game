@@ -58,6 +58,8 @@ public class PlayerController_VR : MonoBehaviour
     bool started = false;
     bool ready = false;
 
+    bool reliable_message = false;
+
 
     void Start()
     {
@@ -78,6 +80,8 @@ public class PlayerController_VR : MonoBehaviour
 
         server_player = n_manager_script.server_player_control;
 
+        reliable_message = n_manager_script.reliable_message;
+
         if (current_player == 1)
         {
 
@@ -85,7 +89,14 @@ public class PlayerController_VR : MonoBehaviour
             // Server Updates world based off a clients inputs
             if (server_player == owner)
             {
-                server_update_values(n_manager_script.server_to_client_data);
+                if (reliable_message)
+                {
+                    left_hand.GetComponent<Renderer>().material.color = Color.green;
+                }
+                else
+                {
+                    server_update_values(n_manager_script.server_to_client_data);
+                }
             }
             update_world_state();
             server_get_values_to_send();
@@ -377,6 +388,14 @@ public class PlayerController_VR : MonoBehaviour
     void client_send_reliable_message(object sender, VRTK.ControllerInteractionEventArgs e)
     {
         Debug.Log("CLICKED");
+        if (current_player == 1)
+        {
+            n_manager_script.server_send_reliable();
+        }
+        else
+        {
+            n_manager_script.client_send_reliable();
+        }
     }
 
 
