@@ -174,7 +174,11 @@ public class PlayerController_VR : MonoBehaviour
             past_left_positions.Enqueue(left_controller.transform.position);
             past_right_positions.Enqueue(right_controller.transform.position);
 
-            client_send_values();
+            if (frame == 10)
+            {
+                client_send_values();
+            }
+            
         }
         if (current_player != 1 && current_player != owner)
         {
