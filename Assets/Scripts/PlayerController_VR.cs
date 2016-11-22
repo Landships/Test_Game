@@ -25,8 +25,8 @@ public class PlayerController_VR : MonoBehaviour
     Queue<Vector3> past_right_positions;
 
     // Lerping
-    bool left_lerping = false;
-    bool right_lerping = false;
+    bool left_reconcile = false;
+    bool right_reconcile = false;
     float lerp_time = 1.0f;
     float current_left_lerp_time;
     float current_right_lerp_time;
@@ -88,35 +88,12 @@ public class PlayerController_VR : MonoBehaviour
                 server_update_values(n_manager_script.server_to_client_data);
             }
             update_client_state();
-            if (started)
-            {
-                if (frame == 10)
-                {
-                    frame = -1;
-                    if (owner != 1)
-                    {
-                        //LerpCheck();
-                    }
-                }
-                frame++;
-
-                if (left_lerping == true)
-                {
-                    lerp_player_left_position();
-                }
-                if (right_lerping == true)
-                {
-                    if (owner == 2)
-                        Debug.Log("player 2 lerping right");
-                    lerp_player_right_position();
-                }
-            }
             server_get_values_to_send();
         }
 
         else
         {
-            if (started)
+            if (owner == current_player)
             {
                 if (frame == 10)
                 {
@@ -126,26 +103,19 @@ public class PlayerController_VR : MonoBehaviour
                 }
                 frame++;
 
-                if (left_lerping || right_lerping)
+                if (left_reconcile == true)
                 {
-                    if (left_lerping == true)
-                    {
-                        lerp_player_left_position();
-                    }
-                    if (right_lerping == true)
-                    {
-                        lerp_player_right_position();
-                    }
+                    reconcile_player_left_position();
                 }
-                else
+                if (right_reconcile == true)
                 {
-                    if (current_player != owner)
-                    {
-                        client_update_values();
-                    }
+                    reconcile_player_right_position();
                 }
             }
-
+            else
+            {
+                 client_update_values();
+            }
             update_client_state();
         }
     }
@@ -277,14 +247,14 @@ public class PlayerController_VR : MonoBehaviour
 
         if (left_found == false)
         {
-            left_lerping = true;
+            left_reconcile = true;
             lerp_final_left_position = new Vector3(left_x, left_y, left_z);
             current_left_lerp_time = 0f;
         }
 
         if (right_found == false)
         {
-            right_lerping = true;
+            right_reconcile = true;
             lerp_final_right_position = new Vector3(right_x, right_y, right_z);
             current_right_lerp_time = 0f;
         }
@@ -369,24 +339,24 @@ public class PlayerController_VR : MonoBehaviour
     }
 
 
-    void lerp_player_left_position()
+    void reconcile_player_left_position()
     {
         current_left_lerp_time += Time.deltaTime;
         if (current_left_lerp_time > lerp_time)
         {
-            left_lerping = false;
+            left_reconcile = false;
             current_left_lerp_time = lerp_time;
         }
         float percent = current_left_lerp_time / lerp_time;
         left_hand.transform.position = Vector3.Lerp(left_hand.transform.position, lerp_final_left_position, percent);
     }
 
-    void lerp_player_right_position()
+    void reconcile_player_right_position()
     {
         current_right_lerp_time += Time.deltaTime;
         if (current_right_lerp_time > lerp_time)
         {
-            right_lerping = false;
+            right_reconcile = false;
             current_right_lerp_time = lerp_time;
         }
         float percent = current_right_lerp_time / lerp_time;
